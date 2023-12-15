@@ -25,6 +25,8 @@ public class Product {
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
+	private String name;
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "product_images",
 			joinColumns = @JoinColumn(name = "product_id"),

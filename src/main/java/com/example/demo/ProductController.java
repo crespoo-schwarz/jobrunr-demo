@@ -26,6 +26,9 @@ public class ProductController {
 			@ApiResponse(responseCode = "404", description = "product not found", content = @Content(schema = @Schema(hidden = true))),
 			@ApiResponse(responseCode = "500", description = "error while getting the products", content = @Content(schema = @Schema(hidden = true)))})
 	@GetMapping
+	// why do you have transactional here? only one thing happens: the creation of the job.
+	// A typical use case is if you create both a User and a Job. Then both should rollback in case of an error.
+	// Here this is not the case. Doesn't hurt but impacts performance.
 	@Transactional
 	public void getProductById() {
 		jobScheduler.enqueue(() -> productService.getProducts());
