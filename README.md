@@ -7,6 +7,8 @@
 
 3 - Run the application. Navigate to http://localhost:8080/swagger-ui/index.html#/product-controller/getProductById
 
-4 - The application will schedule a job that will fail with the following error:
+4 - The user and password are both admin
+
+5 - The application will schedule a job that will fail with the following error:
 
 failed to lazily initialize a collection of role: com.example.demo.Product.images: could not initialize proxy - no Session
